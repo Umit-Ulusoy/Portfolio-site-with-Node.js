@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- includes('../partials/head') -%>
+</head>
+<body>
+    <header>
+        <%- includes('../partials/header') -%>
+        <nav>
+            <%- includes('partials/navigation') -%>
+        </nav>
+    </header>
+
+    <%- includes('../user/' + fileName) -%>
+
+    <footer>
+        <%- includes('../partials/footer') -%>
+    </footer>
+</body>
+</html>
