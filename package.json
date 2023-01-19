@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "Portfolio site with Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Umit-Ulusoy/Portfolio-site-with-Node.js.git"
+  },
+  "author": "Ümit ULUSOY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Umit-Ulusoy/Portfolio-site-with-Node.js/issues"
+  },
+  "homepage": "https://github.com/Umit-Ulusoy/Portfolio-site-with-Node.js#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
