@@ -7,3 +7,13 @@ exports.getHomePage = async (req, res) => {
         res.status(400).send('Something went wrong');
     }
 }
+
+exports.getPortfolioPage = async (req, res) => {
+    try {
+        res.status(200).render('layouts/user', {
+            fileName: 'portfolio'
+        });
+    } catch (error) {
+        res.status(400).send('Something went wrong');
+    }
+}
