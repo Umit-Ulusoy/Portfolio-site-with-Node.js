@@ -1,3 +1,4 @@
+const Portfolio = require('../models/portfolio');
 const Service = require('../models/service');
 
 exports.getHomePage = async (req, res) => {
@@ -8,11 +9,15 @@ exports.getHomePage = async (req, res) => {
 }
 
 exports.getPortfolioPage = async (req, res) => {
+    const portfolios = await Portfolio.find();
         res.status(200).render('layouts/user', {
-            fileName: 'portfolio'
+            fileName: 'portfolio',
+            portfolios
         });
 
 }
+
+exports.getPortfolioPage 
 
 exports.getServicePage = async (req, res) => {
 try {
