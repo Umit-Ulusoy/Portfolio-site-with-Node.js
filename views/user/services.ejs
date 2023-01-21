@@ -1,0 +1,14 @@
+<div>
+    <h1>Services</h1>
+    You can take a look at my services
+    <% if (services.length) { %>
+        <% for (let service of services) { %>
+            <div>
+                <h3><%= service.service %></h3>
+                <%= service.description %>
+            </div>
+        <% } %>
+    <% } else { %>
+        <div role="alert" >Not Found Any Service</div>
+        <% } %>
+</div>
