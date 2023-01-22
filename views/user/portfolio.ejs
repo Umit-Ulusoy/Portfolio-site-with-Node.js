@@ -5,7 +5,10 @@
     <% for (let portfolio of portfolios) { %>
         <div>
             <h1><%= portfolio.name %></h1>
-            <%= portfolio.description %>
+            <%= portfolio.description %> <br />
+<% if (portfolio.link) { %>
+    <a href="<%= portfolio.link %>">Visit <%= portfolio.name %>></a>
+<% } %>
         </div>
     <% } %>
 <% } else { %>
