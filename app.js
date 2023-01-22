@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { DATABASE_URL } = require('./config');
 const app = express();
+const adminRoute = require('./routes/adminRoute');
 const pageRoute = require('./routes/pageRoute');
 
 app.set('view engine', 'ejs');
@@ -22,6 +23,8 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Routes
+app.use('/admin', adminRoute);
 app.use('/', pageRoute);
 
 const PORT = process.env.PORT || 80;
