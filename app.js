@@ -5,6 +5,7 @@ const app = express();
 const pageRoute = require('./routes/pageRoute');
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 // Connect to database
 mongoose.set('strictQuery', true);
