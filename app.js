@@ -23,6 +23,8 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+global.adminIn = null;
+
 // Routes
 app.use('/admin', adminRoute);
 app.use('/', pageRoute);
