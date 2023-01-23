@@ -1,8 +1,8 @@
 <div>
-    <h1>Who am I?</h1>
-    I am a highly motivated Developer
-    <h2>My Mission</h2>
-    I want to stand out in this field
-    <h3>My Vision</h3>
-    My vision is to change all the world!
-</div>>
+    <% for (let about of aboutPage) { %>
+    <h1><%= about.headline %></h1>
+<pre>
+    <%= about.context %>
+</pre>
+<% } %>
+</div>
