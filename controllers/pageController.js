@@ -1,4 +1,5 @@
 const Portfolio = require('../models/portfolio');
+const Project = require('../models/project');
 const Service = require('../models/service');
 
 exports.getAboutPage = async (req, res) => {
@@ -26,10 +27,13 @@ exports.getHomePage = async (req, res) => {
 
 exports.getPortfolioPage = async (req, res) => {
 try {
-    const portfolios = await Portfolio.find();
+    const portfolio = await Portfolio.findOne();
+    const projects = await Project.find();
+
         res.status(200).render('layouts/user', {
             fileName: 'portfolio',
-            portfolios
+            portfolio,
+            projects
         });    
 } catch (error) {
     res.status(400).send('Something went wrong! Please try again later.');

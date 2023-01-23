@@ -1,13 +1,13 @@
 <div>
-    <h1>Projects</h1>
-    You can take a look at my other projects
-<% if (portfolios.length) { %>
-    <% for (let portfolio of portfolios) { %>
+    <h1><%= portfolio.headline %></h1>
+<%= portfolio.context %>
+<% if (projects.length) { %>
+    <% for (let project of projects) { %>
         <div>
-            <h1><%= portfolio.name %></h1>
-            <%= portfolio.description %> <br />
-<% if (portfolio.link) { %>
-    <a href="<%= portfolio.link %>">Visit <%= portfolio.name %>></a>
+            <h1><%= project.name %></h1>
+            <%= project.description %> <br />
+<% if (project.link) { %>
+    <a href="<%= project.link %>">Visit <%= project.name %>></a>
 <% } %>
         </div>
     <% } %>
