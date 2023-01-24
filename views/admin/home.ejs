@@ -1,6 +1,9 @@
 <div>
     <h1>Manage Home Page</h1>
-    <input type="text" name="headline" value="<%= homePage.headline %>" />
+    <form action="/admin/home?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="text" name="headline" value="<%= homePage.headline %>" />
     <textarea name="context" ><%= homePage.context %></textarea>
     <button type="submit">Save</button>
+    </form>
 </div>
