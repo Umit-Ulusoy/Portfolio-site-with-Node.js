@@ -1,5 +1,6 @@
 const Portfolio = require('../models/portfolio');
 const AboutPage = require('../models/aboutPage');
+const ContactPage = require('../models/contactPage');
 const HomePage = require('../models/homePage');
 const Project = require('../models/project');
 const Service = require('../models/service');
@@ -19,9 +20,16 @@ exports.getAboutPage = async (req, res) => {
 }
 
 exports.getContactPage = async (req, res) => {
-    res.status(200).render('layouts/user', {
-        fileName: 'contact'
+try {
+    const contactPage = await ContactPage.findOne();
+
+        res.status(200).render('layouts/user', {
+        fileName: 'contact',
+        contactPage
     });
+} catch (error) {
+    res.status(400).send('Something went wrong! Please try again later.');
+}
 }
 
 exports.getHomePage = async (req, res) => {
