@@ -8,16 +8,27 @@
 </form>
     
     <h2>Manage Projects</h2>
+    <div>
+        <h3>Add A New One</h3>
+        <form action="/admin/portfolio" method="POST">
+            <input type="text" name="name" placeholder="Enter a name" /><br />
+            <textarea name="description" placeholder="Enter a description"></textarea><br />
+            <input type="text" name="link" placeholder="Enter a link" /><br />
+            <button type="submit">Add</button>
+            <button type="reset">Reset The Fields</button>
+        </form>
+    </div>
 
     <% if (projects.length) { %>
         <% for (let project of projects) { %>
     <div>
-<form action="/admin/portfolio/<%= project._id %>?_method=PUT" method="POST">
+<form action="/admin/portfolio/<%= project.slug %>?_method=PUT" method="POST">
     <input type="text" name="name" value="<%= project.name %>" /><br />
     <textarea name="description"><%= project.description %></textarea><br />
     <input type="text" name="link" value="<%= project.link || '' %>" /><br />
     <button type="submit">Update</button>
     <button type="reset">Reset The Fields</button>
+    <a role="button" href="/admin/portfolio/<%= project.slug %>?_method=DELETE">Delete</a>
 </div>
 </form>
     <% } %>
