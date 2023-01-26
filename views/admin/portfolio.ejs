@@ -1,0 +1,28 @@
+<div>
+    <h1>Manage Portfolio Page</h1>
+<form action="/portfolio" method="POST">
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="text" name="headline" value="<%= portfolioPage.headline %>" /> <br />
+    <textarea name="context"><%= portfolioPage.context || '' %></textarea><br />
+    <button type="submit">Update</button>
+    <button type="reset">Reset The Fields</button>
+</form>
+    
+    <h2>Manage Projects</h2>
+
+    <% if (projects.length) { %>
+        <% for (let project of projects) { %>
+    <div>
+<form action="/admin/portfolio/<%= project._id %>?_method=PUT" method="POST">
+    <input type="text" name="name" value="<%= project.name %>" /><br />
+    <textarea name="context"><%= project.description %></textarea><br />
+    <input type="text" name="link" value="<%= project.link || '' %>" /><br />
+    <button type="submit">Update</button>
+    <button type="reset">Reset The Fields</button>
+</div>
+</form>
+    <% } %>
+    <% } else { %>
+        <div role="alert">You do not have any project</div>
+        <% } %>
+</div>
