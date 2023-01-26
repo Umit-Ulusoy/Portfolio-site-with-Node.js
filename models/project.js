@@ -34,6 +34,7 @@ ProjectSchema.pre('validate', function (next) {
         lower: true,
         strict: true
     });
+next()
 });
 
 

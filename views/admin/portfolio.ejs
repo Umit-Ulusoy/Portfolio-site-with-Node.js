@@ -1,7 +1,6 @@
 <div>
     <h1>Manage Portfolio Page</h1>
-<form action="/portfolio" method="POST">
-    <input type="hidden" name="_method" value="PUT" />
+<form action="/admin/portfolio?_method=PUT" method="POST">
     <input type="text" name="headline" value="<%= portfolioPage.headline %>" /> <br />
     <textarea name="context"><%= portfolioPage.context || '' %></textarea><br />
     <button type="submit">Update</button>
@@ -15,7 +14,7 @@
     <div>
 <form action="/admin/portfolio/<%= project._id %>?_method=PUT" method="POST">
     <input type="text" name="name" value="<%= project.name %>" /><br />
-    <textarea name="context"><%= project.description %></textarea><br />
+    <textarea name="description"><%= project.description %></textarea><br />
     <input type="text" name="link" value="<%= project.link || '' %>" /><br />
     <button type="submit">Update</button>
     <button type="reset">Reset The Fields</button>
