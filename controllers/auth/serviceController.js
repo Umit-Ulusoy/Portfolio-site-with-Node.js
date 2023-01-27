@@ -1,6 +1,27 @@
 const ServicePage = require('../../models/servicePage');
 const Service = require('../../models/service');
 
+exports.addService = async (req, res) => {
+    try {
+
+        await Service.create(req.body);
+
+        res.status(201).redirect('/admin/services');
+    } catch (error) {
+        res.status(400).send('Something went wrong! Please try again later.');
+    }
+}
+
+exports.deleteService = async (req, res) => {
+    try {
+        await Service.deleteOne({ slug: req.params.slug });
+
+        res.status(200).redirect('/admin/services');
+    } catch (error) {
+        res.status(400).send('Something went wrong! Please try again later.');
+    }
+}
+
 exports.getServicePage = async (req, res) => {
     try {
         const servicePage = await ServicePage.findOne();

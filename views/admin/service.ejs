@@ -9,6 +9,15 @@
 
 <!-- Services -->
 <h2>Manage Services</h2>
+<div>
+    <h3>Add A New One</h3>
+    <form action="/admin/services/" method="POST">
+        <input type="text" name="name" placeholder="Enter a service" /> <br />
+        <textarea name="description" placeholder="Enter a description"></textarea><br />
+        <button type="submit">Add</button>
+        <button type="reset">Reset The Fields</button>
+    </form>
+</div>
 <% if (services.length) { %>
 <% for (let service of services) { %>
 <div>
@@ -17,6 +26,7 @@
     <textarea name="description"><%= service.description %></textarea><br />
 <button type="submit">Update</button>
 <button type="reset">Reset The Fields</button>
+<a role="button" href="/admin/services/<%= service.slug %>?_method=DELETE">Delete</a>
 </form>
 </div>
 <% } %>
