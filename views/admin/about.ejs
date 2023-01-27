@@ -2,6 +2,17 @@
     <h2>Manage About Page</h2>
 
     <!-- About sections -->
+    <% if (aboutSections.length <= 5) { %>
+    <div>
+        <h3>Add A New One</h3>
+        <form action="/admin/about/" method="POST">
+            <input type="text" name="headline" placeholder="Enter a headline" /><br />
+            <textarea name="context" placeholder="Enter a context"></textarea>
+            <button type="submit">Add</button>
+            <button type="reset">Reset The Fields</button>
+        </form>
+    </div>
+    <% } %>
 <%    if (aboutSections.length) { %>
 <% for (let aboutSection of aboutSections) { %>
 <div>

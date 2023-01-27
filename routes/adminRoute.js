@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.route('/login').get(authController.getLoginPage);
 
+router.route('/about').post(aboutController.addSection);
 router.route('/about').get(aboutController.getAboutPage);
 router.route('/about/:slug').put(aboutController.updateSection);
 
