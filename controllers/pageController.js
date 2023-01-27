@@ -65,7 +65,7 @@ try {
 exports.getServicePage = async (req, res) => {
 try {
     const servicePage = await ServicePage.findOne();
-    const services = await Service.find();
+    const services = await Service.find().sort('-createdAt');
     
     res.status(200).render('layouts/user', {
         fileName: 'services',

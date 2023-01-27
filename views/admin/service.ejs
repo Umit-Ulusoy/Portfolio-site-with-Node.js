@@ -1,0 +1,27 @@
+<div>
+    <h1>Manage Service Page</h1>
+    <form action="/admin/services?_method=PUT" method="POST">
+        <input type="text" name="headline" value="<%= servicePage.headline %>">
+    <textarea name="context" ><%= servicePage.context %></textarea>
+    <button type="submit" >Update</button>
+    <button type="reset" >Reset The Fields</button>
+</form>
+
+<!-- Services -->
+<h2>Manage Services</h2>
+<% if (services.length) { %>
+<% for (let service of services) { %>
+<div>
+    <form action="/admin/services/<% service.slug %>?_method=PUT" method="POST">
+        <input type="text" name="name" value="<%= service.name %>" /><br />
+    <textarea name="description"><%= service.description %></textarea><br />
+<button type="submit">Submit</button>
+<button type="reset">Reset The Fields</button>
+</form>
+</div>
+<% } %>
+<% }else { %>
+    <div role="alert">You do not have any service</div>
+    <% } %>
+
+</div>
