@@ -15,5 +15,7 @@ router.route('/portfolio').put(portfolioController.updatePortfolioPage);
 router.route('/portfolio/:slug').put(portfolioController.updateProject);
 
 router.route('/services').get(serviceController.getServicePage);
+router.route('/services').put(serviceController.updateServicePage);
+router.route('/services/:slug').put(serviceController.updateService);
 
 module.exports = router;

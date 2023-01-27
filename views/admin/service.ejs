@@ -12,10 +12,10 @@
 <% if (services.length) { %>
 <% for (let service of services) { %>
 <div>
-    <form action="/admin/services/<% service.slug %>?_method=PUT" method="POST">
+    <form action="/admin/services/<%= service.slug %>?_method=PUT" method="POST">
         <input type="text" name="name" value="<%= service.name %>" /><br />
     <textarea name="description"><%= service.description %></textarea><br />
-<button type="submit">Submit</button>
+<button type="submit">Update</button>
 <button type="reset">Reset The Fields</button>
 </form>
 </div>
