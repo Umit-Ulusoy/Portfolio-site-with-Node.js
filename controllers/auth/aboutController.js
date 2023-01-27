@@ -12,3 +12,18 @@ exports.getAboutPage = async (req, res) => {
         res.status(400).send('Something went wrong! Please try again later.');
     }
 }
+
+exports.updateSection = async (req, res) => {
+    try {
+        const aboutSection = await AboutPage.findOne({ slug: req.params.slug });
+        const { headline, context } = req.body;
+
+        aboutSection.headline = headline;
+        aboutSection.context = context;
+        await aboutSection.save();
+
+        res.status(200).redirect('/admin/about');
+    } catch (error) {
+        res.status(400).send('Something went wrong! Please try again later.');
+    }
+}
