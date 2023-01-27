@@ -1,0 +1,18 @@
+<div>
+    <h2>Manage About Page</h2>
+
+    <!-- About sections -->
+<%    if (aboutSections.length) { %>
+<% for (let aboutSection of aboutSections) { %>
+    <form action="/admin/about/<%= aboutSection.slug %>?_method=PUT" method="POST" >
+        <input type="text" name="headline" value="<%= aboutSection.headline %>" /><br />
+        <textarea name="context" ><%= aboutSection.context %></textarea><br />
+        <button type="submit">Update</button>
+        <button type="reset">Reset The Fields</button>
+        <a role="button" href="/admin/about/<%= aboutSection.slug %>?_method=DELETE">Delete</a>
+    </form>
+<% } %>
+<% } else { %>
+    <div role="alert">There is no any section</div>
+    <% } %>
+</div>
