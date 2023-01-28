@@ -1,0 +1,11 @@
+<div>
+    <h2>Manage Contact Page</h2>
+    <div>
+        <form action="/admin/contact/?_method=PUT" method="POST">
+            <input type="text" name="headline" value="<%= contactPage.headline %>" /><br />
+            <textarea name="context"><%= contactPage.context %></textarea>
+            <button type="submit">Update</button>
+            <button type="reset">Reset The Fields</button>
+        </form>
+    </div>
+</div>

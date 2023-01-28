@@ -1,6 +1,7 @@
 const express = require('express');
 const aboutController = require('../controllers/auth/aboutController');
 const authController = require('../controllers/auth/authController');
+const contactController = require('../controllers/auth/contactController');
 const homeController = require('../controllers/auth/homeController');
 const portfolioController = require('../controllers/auth/portfolioController');
 const serviceController = require('../controllers/auth/serviceController');
@@ -9,8 +10,11 @@ const router = express.Router();
 router.route('/login').get(authController.getLoginPage);
 
 router.route('/about').post(aboutController.addSection);
+router.route('/about/:slug').delete(aboutController.deleteSection);
 router.route('/about').get(aboutController.getAboutPage);
 router.route('/about/:slug').put(aboutController.updateSection);
+
+router.route('/contact').get(contactController.getContactPage);
 
 router.route('/home').get(homeController.getHomePage);
 router.route('/home').put(homeController.updateHomePage);
