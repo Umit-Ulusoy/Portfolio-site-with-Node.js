@@ -15,6 +15,7 @@ router.route('/about').get(aboutController.getAboutPage);
 router.route('/about/:slug').put(aboutController.updateSection);
 
 router.route('/contact').get(contactController.getContactPage);
+router.route('/contact').put(contactController.updateContactPage);
 
 router.route('/home').get(homeController.getHomePage);
 router.route('/home').put(homeController.updateHomePage);
