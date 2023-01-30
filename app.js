@@ -1,6 +1,8 @@
 const express = require('express');
+const session = require('express-session');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const { DATABASE_URL } = require('./config');
 const app = express();
 const adminRoute = require('./routes/adminRoute');
@@ -23,15 +25,25 @@ mongoose
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(session({
+  secret: 'my_keyboard_cat',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: DATABASE_URL })
+}));
 app.use(
   methodOverride('_method', {
     methods: ['GET', 'POST']
   })
 );
 
-global.adminIn = null;
+global.isAdmin = null;
 
 // Routes
+app.use('*', (req, res, next) => {
+  isAdmin = req.session.userID;
+  next()
+});
 app.use('/admin', adminRoute);
 app.use('/', pageRoute);
 
