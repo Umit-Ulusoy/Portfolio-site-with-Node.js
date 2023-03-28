@@ -3,3 +3,9 @@ exports.getLoginPage = async (req, res) => {
         fileName: 'login'
     });
 }
+
+exports.logout = (req, res) => {
+    res.session.destroy(() => {
+        req.redirect('/');
+    });
+}

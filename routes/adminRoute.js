@@ -1,13 +1,14 @@
 const express = require('express');
 const aboutController = require('../controllers/auth/aboutController');
 const authController = require('../controllers/auth/authController');
+const authMiddleware = require('../middlewares/redirectMiddleware');
 const contactController = require('../controllers/auth/contactController');
 const homeController = require('../controllers/auth/homeController');
 const portfolioController = require('../controllers/auth/portfolioController');
 const serviceController = require('../controllers/auth/serviceController');
 const router = express.Router();
 
-router.route('/login').get(authController.getLoginPage);
+router.route('/login').get(authMiddleware, authController.getLoginPage);
 
 router.route('/about').post(aboutController.addSection);
 router.route('/about/:slug').delete(aboutController.deleteSection);

@@ -1,0 +1,17 @@
+<div>
+    <h2>Manage Settings</h2>
+<div>
+    <h3>Manage Meta Data</h3>
+    <form action="/admin/settings/?_method=PUT" method="POST" >
+    <input type="text" name="title" placeholder="Enter a title" value="<%= settings.title %>" /><br />
+    <textarea name="description" placeholder="Enter a description"><%= settings.description %></textarea>
+    <input type="text" name="keywords" placeholder="Enter keyword(s)" value="<%= settings.keyboards %>" /><br />
+    <input type="text" name="header" placeholder="Enter a text for header section" value="<%= settings.header" /><br />
+    <input type="text" name="footer" placeholder="Enter a text for footer section" value="<%= settings.footer %>" /><br />
+    <input type="text" name="email" placeholder="Enter e-mail" value="<%= settings.email %>" /><br />
+    <input type="text" name="password" placeholder="Enter a password" value="<%= settings.password %>" /><br />
+    <button type="submit">Update</button>
+    <button type="reset">Reset The Fields</button>
+    </form>
+</div>
+</div>
